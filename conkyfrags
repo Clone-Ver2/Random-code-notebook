@@ -1,1 +1,184 @@
 conky fragments for linux
+
+Gits version
+
+
+conky -c ~/.conkyrc_gits
+
+
+
+
+conky.config = {
+    background = true,
+    update_interval = 1,
+    double_buffer = true,
+    no_buffers = true,
+    text_buffer_size = 2048,
+    override_utf8_locale = true,
+
+    alignment = 'top_left',
+    gap_x = 20,
+    gap_y = 40,
+    minimum_width = 300, minimum_height = 0,
+
+    own_window = true,
+    own_window_type = 'desktop',
+    own_window_transparent = true,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+
+    draw_shades = false,
+    draw_outline = false,
+    draw_borders = false,
+    draw_graph_borders = true,
+
+    use_xft = true,
+    font = 'Fira Mono:size=9',
+    default_color = '00FF00',
+};
+
+conky.text = [[
+${font Fira Mono:bold:size=10}${color}${time %A, %d %B %Y}
+${font Fira Mono:size=9}${color}Time: ${time %H:%M:%S}
+システムモニター: GHOST_UI v1.3
+
+Uptime: ${uptime}
+CPU: ${cpu}% ${cpubar 8}
+RAM: ${mem}/${memmax} ${membar 8}
+Load: ${loadavg}
+Disk: ${fs_used /} / ${fs_size /} ${fs_bar 8 /}
+Net: ↓ ${downspeedf wlan0} ↑ ${upspeedf wlan0}
+Public IP: ${execi 300 curl -s ifconfig.me}
+Battery: ${battery_percent BAT0}% ${battery_bar 8 BAT0}
+]];
+
+
+
+
+
+
+
+
+Nerv/Evangelion
+
+
+conky -c ~/.conkyrc_nerv
+
+
+
+conky.config = {
+    background = true,
+    update_interval = 1,
+    double_buffer = true,
+    no_buffers = true,
+    text_buffer_size = 2048,
+    override_utf8_locale = true,
+
+    alignment = 'top_right',
+    gap_x = 20,
+    gap_y = 40,
+    minimum_width = 300, minimum_height = 0,
+
+    own_window = true,
+    own_window_type = 'desktop',
+    own_window_transparent = true,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+
+    draw_shades = false,
+    draw_outline = false,
+    draw_borders = false,
+    draw_graph_borders = true,
+
+    use_xft = true,
+    font = 'JetBrains Mono:size=9',
+    default_color = 'FF3CAC',
+};
+
+conky.text = [[
+${font JetBrains Mono:bold:size=10}${color}${time %A, %d %B %Y}
+システムモニター / NERV-UI.v2
+
+[ STATUS MONITOR ]
+TIME: ${time %H:%M:%S}
+UPTIME: ${uptime}
+
+[ SYSTEM LOAD ]
+CPU: ${cpu}% ${cpubar 10}
+MEM: ${mem} / ${memmax} ${membar 10}
+LOAD AVG: ${loadavg}
+DISK /: ${fs_used /} / ${fs_size /} ${fs_bar 10 /}
+
+[ NETWORK ]
+SSID: ${wireless_essid wlan0}
+IP: ${addr wlan0}
+EXT IP: ${execi 300 curl -s ifconfig.me}
+NET ↓ ${downspeedf wlan0} ↑ ${upspeedf wlan0}
+
+[ POWER ]
+BATTERY: ${battery_percent BAT0}% ${battery_bar 10 BAT0}
+]];
+
+
+
+
+RavencoreV1
+
+
+
+conky.config = {
+    background = true,
+    update_interval = 1,
+    double_buffer = true,
+    no_buffers = true,
+    text_buffer_size = 2048,
+    override_utf8_locale = true,
+
+    alignment = 'top_left',
+    gap_x = 25,
+    gap_y = 40,
+    minimum_width = 320, minimum_height = 0,
+
+    own_window = true,
+    own_window_type = 'desktop',
+    own_window_transparent = true,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+
+    draw_shades = false,
+    draw_outline = false,
+    draw_borders = false,
+    draw_graph_borders = false,
+
+    use_xft = true,
+    font = 'Fira Mono:size=9',
+    default_color = '00ffcc', -- change to magenta or cyan if preferred
+};
+
+conky.text = [[
+${font Fira Mono:bold:size=10}${color}${alignc}ᛉ 𝕽𝖆𝖛𝖊𝖓𝖈𝖔𝖗𝖊 𝖀𝖎 ᛉ
+${alignc}⚔️ 🜏 ☠️ 🜏 ⚔️
+${alignc}${time %A, %d %B %Y}
+${alignc}${time %H:%M:%S}
+
+${font Fira Mono:size=9}
+󰚢 Uptime: ${uptime}
+󱑍 CPU: ${cpu}% ${cpubar 8}
+󰍛 RAM: ${mem} / ${memmax} ${membar 8}
+󰋊 Temp: ${exec sensors | grep 'Package id 0' | awk '{print $4}'}
+󰍜 Load: ${loadavg}
+󰣴 Disk /: ${fs_used /} / ${fs_size /} ${fs_bar 8 /}
+
+󰊠 Net ↓: ${downspeedf wlan0} ↑: ${upspeedf wlan0}
+󰒍 IP: ${addr wlan0}
+󰛗 Ext IP: ${execi 300 curl -s ifconfig.me}
+󰂓 Battery: ${battery_percent BAT0}% ${battery_bar 8 BAT0}
+
+${font Fira Mono:bold:size=10}${alignc}☠️ 🜲 ᛟ 🜲 ☠️
+${alignc}${exec fortune | fold -s -w 45 | head -n 3}
+]];
+
+
+
+required extras for v1
+
+sudo apt install fonts-firacode fonts-symbola fonts-noto-color-emoji fortune-mod lm-sensors
+sudo sensors-detect
+
