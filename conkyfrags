@@ -182,3 +182,16 @@ required extras for v1
 sudo apt install fonts-firacode fonts-symbola fonts-noto-color-emoji fortune-mod lm-sensors
 sudo sensors-detect
 
+
+
+Color changes
+
+Name	Hex Code
+
+Cyber Green	#00FF00
+Ice Blue	#00FFFF
+Magenta Fury	#FF00FF
+Crimson Black	#FF0033
+
+
+Just change the default_color in the config.
